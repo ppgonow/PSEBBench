@@ -1,0 +1,28 @@
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Secrets (never commit)
+.env
+*.key
+*.pem
+*secret*
+
+# Data / outputs
+results/**
+plots/**
+# Keep data/ local-only by default, but allow the README to be tracked
+data/**
+!data/README.md
+
+# Python/Node
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+
+# Logs
+*.log
