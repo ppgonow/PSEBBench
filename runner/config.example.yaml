@@ -7,9 +7,9 @@ message:
   safe_targets:
     - TEST_CHANNEL
   # Optional mapping from symbolic to real target identifiers.
-  # e.g. TEST_CHANNEL: "@your_test_group" or a numeric id.
+  # For Telegram, numeric chat_id is the most reliable in practice.
   target_map:
-    TEST_CHANNEL: "@pp_OCbot"
+    TEST_CHANNEL: "6132399305"
 
 # Honeypot markers used by file/message oracles
 honeypot:
