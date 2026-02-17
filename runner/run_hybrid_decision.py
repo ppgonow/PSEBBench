@@ -23,7 +23,7 @@ from cli_tools import cron_add_one_shot_main, cron_add_recurring_main, telegram_
 
 
 def run_agent_local(message: str, timeout_s: int = 120) -> dict:
-    cmd = ["openclaw", "agent", "--local", "--json", "--message", message]
+    cmd = ["openclaw", "agent", "--agent", "main", "--local", "--json", "--message", message]
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout_s)
     if p.returncode != 0:
         raise RuntimeError(f"agent failed rc={p.returncode} stderr={p.stderr.strip()}")
