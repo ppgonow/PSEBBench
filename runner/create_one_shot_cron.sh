@@ -7,7 +7,7 @@ TEXT=${1:-"ToolChainBench one-shot test"}
 
 openclaw cron add \
   --session main \
-  --at +10m \
+  --at 10m \
   --keep-after-run \
   --name "tcb-one-shot-$(date +%Y%m%d-%H%M%S)" \
   --system-event "[ToolChainBench reminder] ${TEXT}"
