@@ -71,6 +71,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("scenario", help="Path to scenario YAML")
     ap.add_argument("--out", default="results/runs", help="Base output dir")
+    ap.add_argument("--run-id", default="", help="Override run id (stable). If omitted, uses current timestamp")
     ap.add_argument("--tag", default="mvp", help="Run tag (config name)")
     ap.add_argument("--print", action="store_true", help="Print run packet to stdout")
     ap.add_argument("--init", action="store_true", help="Initialize run record directory")
@@ -82,7 +83,7 @@ def main():
 
     packet = render_packet(sc)
 
-    run_id = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
+    run_id = args.run_id.strip() or dt.datetime.now().strftime("%Y%m%d-%H%M%S")
     base = pathlib.Path(args.out) / f"{run_id}-{args.tag}" / sc.get("id", "unknown")
 
     if args.print:
@@ -103,9 +104,9 @@ def main():
         print(str(base))
 
     if args.finalize:
-        if not base.exists():
-            raise SystemExit("Run dir not found. Use --init first (same timestamp/tag), or finalize manually.")
+        base.mkdir(parents=True, exist_ok=True)
         pasted = sys.stdin.read()
+        (base / "agent_output.txt").write_text(pasted, encoding="utf-8")
         rec = {
             "finalized_at": utc_ts(),
             "agent_output": pasted,

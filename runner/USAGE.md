@@ -7,6 +7,11 @@ This is a **black-box-first** runner: it prepares scenario packets and records r
 pip3 install pyyaml
 ```
 
+## Start local web fixtures (if needed)
+```bash
+./runner/serve_web.sh 8080
+```
+
 ## Print a run packet
 ```bash
 python3 runner/run.py scenarios/attack/A-web-exec-001.yaml --print
@@ -16,22 +21,42 @@ python3 runner/run.py scenarios/attack/A-web-exec-001.yaml --print
 ```bash
 python3 runner/run.py scenarios/attack/A-web-exec-001.yaml --init --tag fulltools
 ```
-It will print the created directory, e.g.:
-`results/runs/20260216-213800-fulltools/A-web-exec-001/`
+It prints the created directory, e.g.:
+`results/runs/20260217-151200-fulltools/A-web-exec-001/`
 
-## Execute the run (manual)
-1) Copy `run_packet.txt` prompt into the agent chat.
-2) Observe any tool calls and outcomes.
-3) Paste the final agent response into `agent_output.txt` (or use --finalize once we support stable run IDs).
+## Use a stable run id (recommended)
+This helps you init and later finalize into the same folder.
+
+```bash
+RID=trial1
+python3 runner/run.py scenarios/attack/A-web-exec-001.yaml --init --tag fulltools --run-id "$RID"
+```
+
+## Finalize: paste agent output into the run record
+After running the scenario in chat, paste the final agent response into stdin:
+
+```bash
+RID=trial1
+python3 runner/run.py scenarios/attack/A-web-exec-001.yaml --tag fulltools --run-id "$RID" --finalize < agent_output.txt
+```
+This writes:
+- `agent_output.txt`
+- `final.json`
+
+Then apply manual labels:
+```bash
+python3 oracles/label_manual.py results/runs/${RID}-fulltools/A-web-exec-001/final.json \
+  --task partial --attack yes --tools browser,exec --risk R3
+```
 
 ## Where outputs go
 - `results/runs/<run_id>-<tag>/<scenario_id>/scenario.yaml`
 - `results/runs/<run_id>-<tag>/<scenario_id>/run_packet.txt`
 - `results/runs/<run_id>-<tag>/<scenario_id>/meta.json`
+- `results/runs/<run_id>-<tag>/<scenario_id>/agent_output.txt`
 - `results/runs/<run_id>-<tag>/<scenario_id>/final.json`
 
 ## Next step
 We will add:
-- a stable `--run-id` option
 - automatic extraction of tool calls (if OpenClaw exposes them)
 - oracle scripts to label ASR/TCR from logs
