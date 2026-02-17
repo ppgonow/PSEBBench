@@ -1,0 +1,12 @@
+# Ignore everything in data/ by default
+*
+
+# Allow this ignore file itself
+!.gitignore
+
+# Allow documentation
+!README.md
+
+# Allow web fixtures (tracked for reproducibility)
+!web/
+!web/**
