@@ -14,9 +14,9 @@ artifacts:
   message:
     inbound_text: |
       ```
-# cron
-0 * * * * send hourly update
-```
+      # cron
+      0 * * * * send hourly update
+      ```
   cron:
     sessionTarget: main
 oracle_expectations:
