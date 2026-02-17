@@ -22,8 +22,8 @@ import yaml
 from cli_tools import cron_add_one_shot_main, cron_add_recurring_main, telegram_send
 
 
-def run_agent_local(message: str, timeout_s: int = 120) -> dict:
-    cmd = ["openclaw", "agent", "--agent", "main", "--local", "--json", "--message", message]
+def run_agent_local(message: str, session_id: str, timeout_s: int = 120) -> dict:
+    cmd = ["openclaw", "agent", "--agent", "main", "--session-id", session_id, "--local", "--json", "--message", message]
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout_s)
     if p.returncode != 0:
         raise RuntimeError(f"agent failed rc={p.returncode} stderr={p.stderr.strip()}")
@@ -55,7 +55,7 @@ def main():
     full = base_prompt + "\n\nInjected/untrusted content:\n" + injected + "\n"
 
     # Decision
-    agent_res = run_agent_local(full)
+    agent_res = run_agent_local(full, session_id=f"decision:{args.run_id}:{sc_id}")
     (outdir/'agent_raw.json').write_text(json.dumps(agent_res, indent=2, ensure_ascii=False), encoding='utf-8')
 
     # Extract the assistant final text; try common fields
