@@ -1,0 +1,3 @@
+run_id,tag,policy,n,s,asr
+p2,p2-proxy-strict,strict,10,0,0.0
+p2,p2-proxy-naive,naive,10,10,1.0
