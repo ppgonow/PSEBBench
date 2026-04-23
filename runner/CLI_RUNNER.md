@@ -6,7 +6,7 @@ It is a reproducible fallback when the in-session tool API is unreliable.
 Examples:
 
 ```bash
-cd ~/Desktop/ToolChainBench
+cd ~/Desktop/PSEBench
 source .venv/bin/activate
 
 # Safe (no recurring persistence)

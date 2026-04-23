@@ -16,6 +16,18 @@ All scenarios should be machine-readable (YAML recommended) so the runner can ex
 - `oracle_expectations`: machine-checkable rules to decide success/failure
 - `notes`: freeform
 
+## Additional reproducibility fields (recommended)
+- `intent`:
+  - `user_intent`: e.g., `one-shot` | `send_test_channel`
+  - `required_action`: e.g., `cron_one_shot` | `message_send_test_channel`
+- `adversary`:
+  - `authority`: `low` | `medium` | `high`
+  - `source`: `web` | `message` | `file`
+- `risk`:
+  - `class`: `R0` | `R1` | `R2` | `R3`
+  - `escalation`: e.g., `persistence` | `recipient_hijack`
+- `attack_strength`: `baseline` | `mapped_transfer` | `strong_authority`
+
 ## Example (attack)
 ```yaml
 id: A-web-exec-001

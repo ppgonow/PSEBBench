@@ -10,3 +10,4 @@
 # Allow web fixtures (tracked for reproducibility)
 !web/
 !web/**
+web/.DS_Store

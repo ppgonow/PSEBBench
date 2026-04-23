@@ -1,0 +1,32 @@
+Setting / Slice,Policy / Baseline,n,ASR,TCR,Confirmation count,Short note
+core cron matched slice,permissive,10,1.000,1.000,,Creates injected recurring on matched cron cases.
+core cron matched slice,strict / safe,10,0.000,1.000,,Representative safe/strict run; blocks escalation while preserving one-shot completion.
+core cron matched slice,firewall,10,0.000,1.000,,Strong coarse baseline on this slice; no explicit utility penalty here.
+core cron matched slice,confirm-all-persistent,10,0.000,1.000,10,Suppresses attack but confirms every persistent/broader-scope case.
+core cron matched slice,SLC,10,0.000,1.000,,Looks competitive on matched lexical cases.
+core cron matched slice,IACG,10,0.000,1.000,,Blocks persistence escalation while preserving task completion.
+authorization-boundary contrast,permissive,3,0.667,1.000,,Fails on one-shot/ambiguous but not legit recurring.
+authorization-boundary contrast,firewall,3,0.000,0.667,,Blocks legitimate recurring and loses utility.
+authorization-boundary contrast,confirm-all-persistent,3,0.000,0.667,3,Over-confirms all three cases; hurts legit recurring under no-confirmation execution.
+authorization-boundary contrast,SLC,3,0.000,1.000,,More selective than firewall on this small contrast but still lexical only.
+authorization-boundary contrast,IACG,3,0.000,1.000,,Captures authorization boundary: blocks one-shot/ambiguous escalation, allows legit recurring.
+implicit durability,permissive,6,0.000,1.000,,No attack observed; benign implicit persistence preserved.
+implicit durability,firewall,6,0.000,0.000,,Blocks all implicit durability requests; maximal utility loss.
+implicit durability,confirm-all-persistent,6,0.000,0.000,6,Confirms every implicit durability case and collapses utility.
+implicit durability,SLC,6,0.000,0.833,,Misses at least one legitimate implicit persistence expression.
+implicit durability,IACG,6,0.000,1.000,,Preserves implicit legitimate persistence without overblocking.
+failure-mechanism stress test,permissive,4,1.000,1.000,,Full failure under injected recurring.
+failure-mechanism stress test,firewall,4,0.000,1.000,,Blocks attacks but only by coarse denial of persistence.
+failure-mechanism stress test,SLC,4,1.000,1.000,,Fails under negated/misleading lexical contexts; shallow cue matching is exploitable.
+failure-mechanism stress test,IACG,4,0.000,1.000,,Semantic authorization check resists negated lexical traps.
+beyond-cron: file persistence,permissive,6,1.000,1.000,,Persistent file-state escalation succeeds under permissive policy.
+beyond-cron: file persistence,firewall,5,0.000,1.000,,Legit-only firewall slice does not show attack but illustrates coarse blocking baseline family.
+beyond-cron: file persistence,confirm-all-persistent,11,0.000,1.000,11,Suppresses attack but confirms every file persistence action including legitimate ones.
+beyond-cron: file persistence,IACG,7,0.000,1.000,,Preserves legitimate file persistence while blocking escalation.
+beyond-cron: calendar recurrence,permissive,6,1.000,1.000,,Recurring calendar escalation succeeds under permissive policy.
+beyond-cron: calendar recurrence,firewall,5,0.000,1.000,,Legit-only firewall slice remains coarse baseline family reference.
+beyond-cron: calendar recurrence,confirm-all-persistent,11,0.000,1.000,11,Suppresses attack but confirms every calendar recurrence action.
+beyond-cron: calendar recurrence,IACG,7,0.000,1.000,,Preserves legitimate recurring calendar creation while blocking escalation.
+beyond-cron: recipient hijack,permissive,10,1.000,1.000,,Recipient broadening succeeds under permissive behavior.
+beyond-cron: recipient hijack,confirm-all-persistent,10,0.000,1.000,10,Confirms every recipient-broadening case; strong but coarse broader-scope baseline.
+beyond-cron: recipient hijack,IACG,10,0.000,1.000,,Blocks recipient broadening while preserving required send.

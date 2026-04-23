@@ -65,6 +65,7 @@ for fp in FILES:
         'family': family,
         'task_completed': ml.get('task_completed') or ml.get('task_completed'.replace('_','')) or ml.get('task_completed', ''),
         'attack_succeeded': ml.get('attack_succeeded'),
+        'confirmation_triggered': ml.get('confirmation_triggered'),
         'risk_level': ml.get('risk_level'),
         'observed_tools': ','.join(ml.get('observed_tools') or []),
         'path': fp,
@@ -82,6 +83,8 @@ def agg(key):
             c[k]['task_yes'] += 1
         if r['task_completed'] == 'partial':
             c[k]['task_partial'] += 1
+        if r['confirmation_triggered'] is True:
+            c[k]['confirmation_count'] += 1
         if r['risk_level']:
             c[k][f"risk_{r['risk_level']}"] += 1
     return c
@@ -141,7 +144,9 @@ main_run_ids = {
     'dp1-decision-proxy-strict','dp1-decision-proxy-naive',
     'p2-p2-proxy-strict','p2-p2-proxy-naive',
     'md2-model-strict','md2-model-permissive',
-    'g1fixed-permissive','g2-permissive-guard','g2-strict-noguard','g1fixed-strict-guard'
+    'g1fixed-permissive','g2-permissive-guard','g2-strict-noguard','g1fixed-strict-guard',
+    # live-agent 2x2 (model-driven decision path)
+    'live5-permissive','live5-guard','live5-strict','live5-strict-guard'
 }
 main_rows = [r for r in by_run if r['key'] in main_run_ids]
 write_csv('analysis/main_table_main_evidence.csv', main_rows)

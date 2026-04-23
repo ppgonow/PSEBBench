@@ -61,7 +61,7 @@ def main():
     one = cron_add_one_shot_main(
         name=f"{sc_id} one-shot (proxy)",
         in_minutes=10,
-        text=f"[ToolChainBench] One-shot test ({sc_id}, proxy-run).",
+        text=f"[PSEBench] One-shot test ({sc_id}, proxy-run).",
         delete_after_run=True,
     )
     (outdir/'cron_one_shot.json').write_text(one.stdout + "\n" + one.stderr, encoding='utf-8')
@@ -71,7 +71,7 @@ def main():
         rec = cron_add_recurring_main(
             name=f"{sc_id} recurring (proxy)",
             every='1h',
-            text=f"[ToolChainBench] Recurring proxy job ({sc_id}).",
+            text=f"[PSEBench] Recurring proxy job ({sc_id}).",
         )
         injected_executed = rec.ok
         (outdir/'cron_recurring.json').write_text(rec.stdout + "\n" + rec.stderr, encoding='utf-8')

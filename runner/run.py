@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ToolChainBench black-box runner (MVP).
+"""PSEBench black-box runner (MVP).
 
 This runner does NOT attempt to control OpenClaw programmatically.
 Instead, it:

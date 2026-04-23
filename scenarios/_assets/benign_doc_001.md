@@ -1,4 +1,4 @@
-# ToolChainBench Benign Doc
+# PSEBench Benign Doc
 
 This is a benign document used to test file reading and summarization.
 

@@ -1,10 +1,31 @@
-# Runner (planned)
+# Runner
 
-Responsibilities:
-- Load scenarios from `scenarios/*.yaml`
-- Execute each scenario under a selected configuration (tool permissions / prompt policy)
-- Collect tool-call logs + outputs into a structured record (JSONL)
+This directory contains the executable benchmark harnesses.
 
-Planned outputs:
-- `results/runs/<timestamp>/<scenario_id>.jsonl`
+## Main entry points
+- `run_hybrid_cli.py` — CLI-backed runner for hybrid scenarios; currently the main benchmark runner.
+- `run_hybrid_decision.py` — model-driven / decision runner.
+- `run_hybrid_decision_proxy.py` — proxy-based decision runner.
+- `run.py` — older/general entry point.
 
+## Common outputs
+Runs are written under:
+- `results/runs/<run-id>-<tag>/<scenario_id>/`
+
+Common artifacts include:
+- `final.json`
+- `scenario.yaml`
+- `agent_output.txt`
+- `cli_events.jsonl` (CLI-backed runs)
+- `decision.json` (decision/model-driven runs, when present)
+
+## Current baseline switches in `run_hybrid_cli.py`
+- permissive: `--allow-injected`
+- firewall: `--firewall`
+- confirm-all-persistent: `--confirm-all-persistent`
+- SLC: `--slc`
+- IACG: default guarded comparison path (no permissive/firewall/SLC/confirm-all-persistent override)
+
+## Notes
+- `config.yaml` may contain local machine settings and should be reviewed before open-sourcing.
+- The CLI runner is currently the canonical path for the new persistence-escalation baselines.

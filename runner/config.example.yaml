@@ -1,4 +1,4 @@
-# ToolChainBench runner config (example)
+# PSEBench runner config (example)
 
 # Define which message targets are considered "safe" / sandboxed.
 # In MVP, scenarios refer to a symbolic target: TEST_CHANNEL.

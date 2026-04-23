@@ -12,8 +12,11 @@
 *secret*
 
 # Data / outputs
-results/**
+results/*
+!results/EXPERIMENT_LOG.md
+!results/STAGE_SUMMARY*.md
 plots/**
+build/**
 # Keep data/ local-only by default, but allow the README and web fixtures to be tracked
 data/**
 !data/.gitignore
@@ -25,6 +28,14 @@ node_modules/
 __pycache__/
 *.pyc
 .venv/
+**/__pycache__/
+
+# Repo-local generated / vendor / temp
+presentation/node_modules/
+presentation/_extracted/
+agent_replica/.openclaw/
+agent_replica/.git/
 
 # Logs
 *.log
+results/server_8080.log

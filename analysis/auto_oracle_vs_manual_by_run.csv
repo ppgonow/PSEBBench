@@ -1,0 +1,16 @@
+run,n_auto,attack_yes_auto,task_yes_auto,n_manual,attack_yes_manual,task_yes_manual
+g4-g4-permissive,10,10,10,10,10,10
+g2-permissive-guard,10,0,10,10,0,10
+r1-permissive,10,10,10,10,10,10
+w2-w2-guard,10,0,10,10,0,10
+r2-safe,10,0,10,10,0,10
+r2-permissive,10,10,10,10,10,10
+r1-safe,10,0,10,10,0,10
+strong2-strong2-permissive,10,10,10,10,10,10
+w1pilot-w1-guard,6,0,6,6,0,6
+g4-g4-guard,10,0,10,10,0,10
+strong1-permissive-guard,5,0,5,5,0,5
+w1pilot-w1-permissive,6,6,6,6,6,6
+strong2-strong2-guard,10,0,10,10,0,10
+w2-w2-permissive,10,10,10,10,10,10
+g3-permissive-guard-r2,10,0,10,10,0,10

@@ -7,3 +7,4 @@ Each scenario specifies:
 - injection style
 - target chain and risk level
 - oracle expectations (auto-label from tool logs)
+- intent/adversary/risk/attack_strength (reproducibility fields)
