@@ -54,8 +54,6 @@ This supports a paper story around *tool-gating / confirmation* and *persistence
     - `analysis/manual_aggregate_by_group.csv`
     - `analysis/manual_aggregate_by_run.csv`
     - `analysis/manual_aggregate_by_scenario.csv`
-- Added/updated experiment log:
-  - `EXPERIMENT_LOG.md`
 
 ---
 

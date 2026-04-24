@@ -1,4 +1,4 @@
-# PSEBench — Reproducibility Notes
+# PSEBench Reproducibility Notes
 
 This document records the minimal repeatable steps for reproducing representative benchmark runs and summary tables.
 
@@ -9,11 +9,18 @@ This document records the minimal repeatable steps for reproducing representativ
 
 ## 2) Install
 ```bash
-cd ~/Desktop/psebench
+cd ~/Desktop/PSEBench
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -U pyyaml
 ```
+
+Optional local config:
+```bash
+cp runner/config.example.yaml runner/config.yaml
+```
+
+`runner/config.yaml` is intentionally machine-local and gitignored.
 
 ## 3) Main runner modes
 ### CLI runner (hybrid)
@@ -77,8 +84,8 @@ Common artifacts include:
 - `final.json`
 - `scenario.yaml`
 - `agent_output.txt`
-- `cli_events.jsonl` (CLI runs)
-- `decision.json` (decision/model-driven runs, when present)
+- `cli_events.jsonl` for CLI runs
+- `decision.json` for decision/model-driven runs when present
 
 ## 6) Aggregate tables
 ```bash
@@ -108,9 +115,3 @@ Representative fields:
   "guard_reason": "intent one-shot conflicts with recurring action"
 }
 ```
-
-## 8) Release caution
-Before public release, review:
-- `results/runs/`
-- `runner/config.yaml`
-- local notes / drafts under root, `paper/`, and `presentation/`

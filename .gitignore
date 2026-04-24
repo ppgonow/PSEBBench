@@ -13,7 +13,6 @@
 
 # Data / outputs
 results/*
-!results/EXPERIMENT_LOG.md
 !results/STAGE_SUMMARY*.md
 plots/**
 build/**
@@ -31,12 +30,18 @@ __pycache__/
 **/__pycache__/
 
 # Repo-local generated / vendor / temp
-presentation/node_modules/
-presentation/_extracted/
-agent_replica/.openclaw/
-agent_replica/.git/
+agent_replica/
+external/
+paper/
+presentation/
 src/
 paper_writing/
+runner/config.yaml
+Makefile
+EXPERIMENT_LOG.md
+NOTES.md
+NOTES_PERMISSIVE.md
+OPEN_SOURCE_PREP.md
 paper/DRAFT.md
 paper/appendix_short.tex
 

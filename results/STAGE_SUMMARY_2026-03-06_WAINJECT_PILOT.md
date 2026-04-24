@@ -6,7 +6,7 @@ Strengthen external validity by testing whether malicious prompt styles drawn fr
 ## What was done
 1. Confirmed direct HuggingFace download was unstable in the current environment.
 2. Switched to the upstream GitHub repository for WAInjectBench text data.
-3. Downloaded malicious and benign text files into `external/wainjectbench_github/`.
+3. Downloaded malicious and benign text files into a local external-data workspace that is not tracked in the public repository.
 4. Built a first batch of 6 **WAInjectBench-inspired mapped-transfer** scenarios under:
    - `scenarios/hybrid-wainject/`
 5. Ran a small pilot with two conditions:
@@ -36,8 +36,6 @@ This pilot suggests that the main PSEBench finding is not limited to self-author
 
 ## Output artifacts
 - `analysis/w1_wainject_transfer_summary.csv`
-- `paper/WAINJECTBENCH_TRANSFER_PILOT_2026-03-06.md`
-- `results/WAInjectBench_SOURCE_SWITCH_2026-03-06.md`
 - `scenarios/hybrid-wainject/H-msg-cron-required-W001.yaml` ... `W006.yaml`
 
 ## Caveat

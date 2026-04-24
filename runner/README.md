@@ -26,6 +26,14 @@ Common artifacts include:
 - SLC: `--slc`
 - IACG: default guarded comparison path (no permissive/firewall/SLC/confirm-all-persistent override)
 
+## Local config
+If you need machine-specific target mappings or honeypot paths, copy the example file:
+
+```bash
+cp runner/config.example.yaml runner/config.yaml
+```
+
+`runner/config.yaml` is gitignored and stays local.
+
 ## Notes
-- `config.yaml` may contain local machine settings and should be reviewed before open-sourcing.
-- The CLI runner is currently the canonical path for the new persistence-escalation baselines.
+- The CLI runner is currently the canonical path for the persistence-escalation baselines.

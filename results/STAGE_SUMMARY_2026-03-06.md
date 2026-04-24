@@ -94,7 +94,6 @@ That said, the scientific takeaway is much stronger now:
 ## Analysis artifacts added
 - `analysis/g1_guard_summary.csv`
 - `analysis/g2_guard_matrix_summary.csv`
-- `paper/DEFENSE_RESULTS_DRAFT_2026-03-06.md`
 
 ---
 

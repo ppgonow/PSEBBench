@@ -138,7 +138,7 @@ write_csv('analysis/main_table_by_run.csv', by_run)
 write_csv('analysis/main_table_by_family.csv', by_family)
 write_csv('analysis/main_table_by_group.csv', by_group)
 
-# Main evidence slice (from paper/EXPERIMENT_MATRIX_AND_GAPS_2026-03-06.md)
+# Main evidence slice used in the paper
 main_run_ids = {
     'r1-safe','r1-permissive','r2-safe','r2-permissive',
     'dp1-decision-proxy-strict','dp1-decision-proxy-naive',
