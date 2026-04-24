@@ -35,6 +35,10 @@ presentation/node_modules/
 presentation/_extracted/
 agent_replica/.openclaw/
 agent_replica/.git/
+src/
+paper_writing/
+paper/DRAFT.md
+paper/appendix_short.tex
 
 # Logs
 *.log
